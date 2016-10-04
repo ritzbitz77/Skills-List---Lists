@@ -44,14 +44,11 @@ def print_indices(items):
         1 Jeep
         2 Volvo
     """
+    print_indices = []
 
-    # for item in items 
-    #     Put index of string next to word
-    #     append print print_indices
-
-
-    # print "items"
-
+    for item in items:
+        print items.index(item), item
+        
 
 def foods_in_common(foods1, foods2):
     """Find foods in common.
@@ -80,9 +77,9 @@ def foods_in_common(foods1, foods2):
         []
 
     """
-    #didn't get to this
 
-    return ['the wrong thing']
+    foods_in_common = list(set(foods1) & set(foods2))
+    return sorted(foods_in_common)
 
 
 def every_other_item(items):
@@ -101,7 +98,10 @@ def every_other_item(items):
 
     #didn't get to this
 
-    return ['the wrong thing']
+    
+    return items[::2]
+    
+
 
 
 def largest_n_items(items, n):
@@ -126,9 +126,12 @@ def largest_n_items(items, n):
         [3, 3]
     """
 
-    #didn't get to this
+    items_in_order = sorted(items)
+    start = len(items) - n
+    return items_in_order[start:len(items)]
+    
+    
 
-    return []
 
 
 #####################################################################
