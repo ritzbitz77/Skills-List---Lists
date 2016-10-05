@@ -343,12 +343,18 @@ def reverse_list_in_place(items):
         ['I', 'love', 'cookies']
     """
     
-    # while items[::-1]:
-    #     print items]
+    start = 0
+    end = len(items) - 1
 
-# I literally spent over an hour on this one. I'll need some help figure it out.
-
-
+    while start < end:
+        lower = items[start]
+        higher = items[end]
+        items[start] = higher
+        items[end] = lower
+        start += 1
+        end -= 1
+    
+    
 def duplicates(items):
     """Return list of words from input list which were duplicates.
 
@@ -375,13 +381,19 @@ def duplicates(items):
         ['apple', 'apple', 'berry']
     """
 
-    # duplicates = []
+def duplicates(items):
+    seen_once = []
+    duplicates = []
+    
+    for item in items:
+        if item in seen_once:
+            duplicates.append(item)
+        else:
+            seen_once.append(item)
 
-    # for item in items:
-    #     if item in duplicates:
-    #         duplicates.append(item) 
+    return sorted(duplicates)
 
-    # return duplicates
+   
 
 
 def find_letter_indices(words, letter):
@@ -410,16 +422,16 @@ def find_letter_indices(words, letter):
     ("o" does not appear in "jumps", so the result for that input is
     `None`.)
     """
+    
+    indices = []
 
-    # find_letter_indices = []
+    for word in words:
+        if letter not in word:
+            indices.append(None)
+        else:
+            indices.append(word.index(letter))
 
-    # for word in words:
-    #     find the letter o in the list
-    #     identify which index it's located in 
-    #     append the list with the index
-
-
-    # return find_letter_indices
+    return indices
 
 
 
